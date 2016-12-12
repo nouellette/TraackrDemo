@@ -1,0 +1,53 @@
+{
+  "name": "TraackrDemo",
+  "version": "1.0.0",
+  "description": "Traackr demo",
+  "main": "server/server.js",
+  "scripts": {
+    "clean": "rm -rf node_modules reports",
+    "prepare": "npm install && mkdir -p reports",
+    "tsc": "tsc",
+    "tscWatch": "tsc -w",
+    "build": "npm run prepare && npm run tsc && npm run lint && npm run tests",
+    "lint": "eslint server/**/*.js -f checkstyle > reports/checkstyle.xml",
+    "depcheck": "depcheck --ignores=mocha-multi",
+    "tests": "multi='spec=- xunit=reports/mocha-xunit.xml' istanbul cover _mocha -- -R mocha-multi tests/**/*.js && istanbul check-coverage",
+    "start": "node server/server",
+    "startDev": "node server/server && npm run tscWatch"
+  },
+  "author": "Neil Ouellette",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.2.0",
+    "@angular/compiler": "^2.2.0",
+    "@angular/core": "^2.2.0",
+    "@angular/forms": "^2.2.0",
+    "@angular/http": "^2.2.0",
+    "@angular/platform-browser": "^2.2.0",
+    "@angular/platform-browser-dynamic": "^2.2.0",
+    "@angular/router": "^3.2.0",
+    "@angular/upgrade": "^2.2.0",
+    "angular-in-memory-web-api": "^0.1.15",
+    "boom": "^4.2.0",
+    "core-js": "^2.4.1",
+    "hapi": "^15.2.0",
+    "inert": "^4.0.2",
+    "reflect-metadata": "^0.1.8",
+    "rest": "^2.0.0",
+    "rxjs": "^5.0.0-beta.12",
+    "systemjs": "^0.19.41",
+    "zone.js": "^0.6.26"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.48",
+    "angular-cli": "^1.0.0-beta.21",
+    "chai": "^3.5.0",
+    "depcheck": "^0.6.4",
+    "eslint": "^3.8.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "mocha-multi": "^0.9.1",
+    "typescript": "^2.0.10"
+  }
+}

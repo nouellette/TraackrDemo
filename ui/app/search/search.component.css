@@ -1,0 +1,71 @@
+#componentContainer {
+  text-align: center;
+}
+
+#searchContainer {
+  width: 60%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.paginationContainer {
+  text-align: center;
+  margin: auto;
+}
+
+ul.pagination li a {
+  transition: background-color .3s;
+}
+
+.influencer {
+  border: solid 1px #E8E8E8;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 650px;
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.name {
+  color: orange;
+  font-size: 11pt;
+}
+
+.influencerImage {
+  max-width: 140px;
+}
+
+.title {
+  font-size: 9pt;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 9pt;
+}
+
+.location {
+  font-size: 9pt;
+}
+
+.location span {
+  color: darkgray;
+}
+
+.affiliation{
+  display: inline;
+  font-size: 9pt;
+}
+
+.affiliation span {
+  color: darkgray;
+}
+
+.post {
+  display: inline;
+  font-size: 9pt;
+  color: darkgrey;
+}

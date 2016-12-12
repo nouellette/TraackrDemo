@@ -1,0 +1,36 @@
+verbose: false
+
+reporting:
+#  print: summary
+#    reports:
+#      - lcov
+  dir: ./reports/coverage
+  watermarks:
+#      statements: [50, 80]
+#      lines: [50, 80]
+#      functions: [50, 80]
+      branches: [50, 60]
+
+instrumentation:
+    root: .
+#    default-excludes: true
+    excludes:
+      - lib/routes.dev.js
+
+hooks:
+#  hook-run-in-context: false
+#  post-require-hook: null
+  handle-sigint: true
+check:
+    global:
+        statements: 30
+        lines: 30
+        branches: 30
+        functions: 30
+
+#    each:
+#        statements: 0
+#        lines: 0
+#        branches: 0
+#        functions: 0
+#        excludes: []

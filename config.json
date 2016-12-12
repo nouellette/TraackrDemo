@@ -1,0 +1,17 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 3000,
+    "routes": {
+      "cors": {
+        "origin": ["*"],
+        "credentials": true
+      }
+    }
+  },
+  "searchApi": {
+    "influencers": {
+      "url": "http://api.traackr.com/1.0/influencers/search?pretty=true&api_key=b2761452a5d3a4e7b9fdba845d276213&keywords="
+    }
+  }
+}

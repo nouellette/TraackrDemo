@@ -1,0 +1,83 @@
+<div id="componentContainer" class="container">
+  <div id="searchContainer" class="row">
+  <form (ngSubmit)="$event.preventDefault(); search();">
+    <div class="form-group">
+      <div class="col-xs-11">
+        <input type="text"
+               class="form-control"
+               id="searchText"
+               name="searchText"
+               [(ngModel)]="searchText"
+               aria-describedby="searchHelp"
+               placeholder='E.g. "Black Shoes" or Shoes'>
+      </div>
+      <div class="col-xs-1">
+        <button type="submit" class="btn btn-info btn-md" (ngSubmit)="$event.preventDefault(); search();">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+  <div class="paginationContainer" *ngIf="results && results.influencers && results.influencers.length && results.page_info">
+    <ul class="pagination pagination-sm">
+      <li class="page-item" *ngIf="(results.page_info.previous_page || results.page_info.previous_page === 0) && results.page_info.current_page !== results.page_info.previous_page">
+        <a class="page-link" href="javascript:;" aria-label="Previous" (click)="search(results.page_info.previous_page)">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li *ngIf="(results.page_info.previous_page || results.page_info.previous_page === 0) && results.page_info.current_page !== results.page_info.previous_page"><a href="javascript:;" (click)="search(results.page_info.previous_page)">{{results.page_info.previous_page + 1}}</a></li>
+      <li class="active"><a href="javascript:;">{{results.page_info.current_page + 1}}</a></li>
+      <li *ngIf="results.page_info.current_page !== results.page_info.next_page"><a href="javascript:;" (click)="search(results.page_info.next_page)">{{results.page_info.next_page + 1}}</a></li>
+      <li class="page-item" *ngIf="results.page_info.current_page !== results.page_info.next_page">
+        <a class="page-link" href="javascript:;" aria-label="Next" (click)="search(results.page_info.next_page)">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="results && results.influencers && results.influencers.length > 0">
+    <div class="row influencer" *ngFor="let influencer of results.influencers; trackBy:influencer?.uid">
+      <div class="col-sm-3 center">
+        <img class="influencerImage" *ngIf="influencer.thumbnail_url" src="{{influencer.thumbnail_url}}" />
+      </div>
+      <div class="col-sm-9">
+        <div class="name">{{influencer.name}}</div>
+        <div class="title">{{influencer.title}}</div>
+        <div class="description">{{influencer.description}}</div>
+        <div class="location"><span class="glyphicon glyphicon-map-marker"></span> {{influencer.location}}</div>
+        <div class="affiliation"><span class="glyphicon glyphicon-share"></span> {{influencer.primary_affiliation}}</div>
+        <div class="post">({{influencer.post_hits}} posts)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="results && results.influencers && results.influencers.length === 0">
+    No entries were found
+  </div>
+
+  <div class="paginationContainer" *ngIf="results && results.influencers && results.influencers.length && results.page_info">
+    <ul class="pagination pagination-sm">
+      <li class="page-item" *ngIf="(results.page_info.previous_page || results.page_info.previous_page === 0) && results.page_info.current_page !== results.page_info.previous_page">
+        <a class="page-link" href="javascript:;" aria-label="Previous" (click)="search(results.page_info.previous_page)">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li *ngIf="(results.page_info.previous_page || results.page_info.previous_page === 0) && results.page_info.current_page !== results.page_info.previous_page"><a href="javascript:;" (click)="search(results.page_info.previous_page)">{{results.page_info.previous_page + 1}}</a></li>
+      <li class="active"><a href="javascript:;">{{results.page_info.current_page + 1}}</a></li>
+      <li *ngIf="results.page_info.current_page !== results.page_info.next_page"><a href="javascript:;" (click)="search(results.page_info.next_page)">{{results.page_info.next_page + 1}}</a></li>
+      <li class="page-item" *ngIf="results.page_info.current_page !== results.page_info.next_page">
+        <a class="page-link" href="javascript:;" aria-label="Next" (click)="search(results.page_info.next_page)">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

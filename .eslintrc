@@ -1,0 +1,21 @@
+{
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "forOf": true,
+    "arrowFunctions": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "strict": [2, "global"],
+    "eqeqeq": [2, "allow-null"],
+    "semi": 2,
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "comma-spacing": [1, {"before": false, "after": true}],
+    "arrow-parens": 1
+  }
+}

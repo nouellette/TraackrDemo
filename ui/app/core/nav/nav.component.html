@@ -1,0 +1,8 @@
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">Traackr Demo</span>
+  </div>
+  <div class="mdl-navigation">
+    <a *ngFor="let item of menuItems" [routerLink]="item.link" class="nav-link" routerLinkActive="router-link-active" href="">{{item.caption}}</a>
+  </div>
+</header>
